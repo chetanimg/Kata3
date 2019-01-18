@@ -1,27 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package kata3;
-
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Histogram <T>{
-    private final Map<T,Integer> map = new HashMap<T,Integer>();
+    private final Map<T,Integer> map = new HashMap<>();
+    
     public Integer get(T key) {
         return map.get(key); 
     }
     
     public Set<T> keySet() {
-        
-        for (Iterator iterator = col.iterator(); iterator.hasNext();) {
-            Object next = iterator.next();
+
+        Set <T> keyset = new TreeSet<>();
+        for (Map.Entry<T, Integer> entry : map.entrySet()) {
+            T key = entry.getKey();
+            keyset.add(key);
         }
-        return map.keySet();
+        return keyset;
     }
     
     public void increment(T key) {
